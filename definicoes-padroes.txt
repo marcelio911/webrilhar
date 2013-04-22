@@ -1,0 +1,21 @@
+Destaques, Promoções - #333333;
+
+Categorias:
+ BRINCOS - #FF6699
+ COLARES - #FF1562
+ ANÉIS - #FF9FBE
+ TORNOZELEIRAS - #00FF99
+ CORRENTES - #00CA79
+ PULSEIRAS - #35FF5E
+ CONJUNTOS - #3366FF
+ GARGANTILHAS - #333399
+ RELIGIOSOS - #59E4F4
+ 
+Menu configurações:#F8A221
+
+
+Fundo laranja produtos: #EF6F43
+
+Fundo lista produtos: #000000
+
+Fundo botão LOGIN: #F8A221
