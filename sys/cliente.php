@@ -1,34 +1,22 @@
 <?php
 require_once ('lib/nusoap.php');
 
-$wsdl = 'http://localhost/webrilhar/sys/server.php?wsdl';
-$cliente = new SoapClient($wsdl);
-print "<p>Categorias: ";
-var_dump($cliente->__getFunctions());
-$vem = $cliente->__call('getCategorias', array());
-print $vem;
-print "</p>";
+$wsdl = 'http://localhost/webrilhar/sys/server.php';
+$parameters=array('ac_no'=>"3");
+$client=new nusoap_client($wsdl);
+$response=$client->call('balance_enq',$parameters);
+$error=$client->getError();
 
+if($error){
+	 print_r($client->response);			 
+	 print_r($client->getDebug());
+	 die();
+}
 
-	$r = $vem;
-	$count = count($r);
-	?>
-    <table border="1">
-    <tr>
-    	<th>Code</th>
-    	<th>Nome</th>               
-    </tr>
-    <?php
-    for($i=0;$i<=$count-1;$i++){
-	?>
-    <tr>
-    	<td><?php echo $r[$i]['cd_categoria']?></td>
-    	<td><?php echo $r[$i]['nm_categoria']?></td>
-    </tr>
-    <?php
-	}
-	?>
-    </table>
+echo "Resposta do ambiente:";
+//$response=$parameters['ac_no'];
+ussd_stop($response);
 
+?>
 </body> 
 </html> 

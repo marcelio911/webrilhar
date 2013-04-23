@@ -1,36 +1,36 @@
 <?php
-//call library
-require_once ('lib/nusoap.php');
+require_once("lib/nusoap.php");
+require('categorias.php');
 
-//using soap_server to create server object
-$server = new soap_server;
+$server=new nusoap_server();
+$namespace = "http://localhost/webrilhar/sys/server.php";
+$server->wsdl->schemaTargetNamespace = $namespace;
+$server->configureWSDL('mbank','urn:mbank');
 
-$URL = "http://localhost/webrilhar/sys/server.php";
-$namespace = $URL . '?wsdl';
-$server->configureWSDL('Categorias', $namespace);
-ini_set( 'soap.wsdl_cache_enable' , 0 );
-ini_set( 'soap.wsdl_cache_ttl' , 0 );
-//register a function that works on server
-$server->register('getCategorias');
-// function
-	function getCategorias()	{
-		$conn = mysql_connect('127.0.0.1','root','');
-		mysql_select_db('bd_catalog_produtos', $conn);
-		
-		$sql = "SELECT * FROM categoria";
-		$q	= mysql_query($sql);
-		$pos = 0;
-		while($r = mysql_fetch_array($q)){
-		  $items[$pos] = $r['nm_categoria'];
-			$pos = $pos + 1;
-		}		
-		return $items;
-	}
-// create HTTP listener
+//calling the method
+$server->register("balance_enq",
+			array('ac_no'=>'xsd:string'),
+			array('output'=>'xsd:string'),
+			'urn:mbank',
+			'urn:mbank#balance_enq'
+			);
 
-if( ! isset( $HTTP_RAW_POST_DATA )) {
-   $HTTP_RAW_POST_DATA = file_get_contents( 'php://input' );
-}
-$server->service($HTTP_RAW_POST_DATA); 
-exit();
+  
+$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
+$server->service($HTTP_RAW_POST_DATA);
+/*
+$server->register( 'hello',             // method name
+    array('name' => 'xsd:string'),      // input parameters
+    array('return' => 'xsd:string'),    // output parameters
+    'uri:helloworld',                   // namespace
+    'uri:helloworld/hello',             // SOAPAction
+    'rpc',                              // style
+    'encoded'                           // use
+);
+// Define the method as a PHP function
+function hello($name) {
+    return 'Hello, ' . $name;
+}*/
+// Use the request to (try to) invoke the service 
+/**/
 ?> 

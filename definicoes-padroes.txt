@@ -1,9 +1,9 @@
-Destaques, Promoções - #333333;
+Destaques, Promoções -> #FF517C
 
 Categorias:
- BRINCOS - #FF6699
- COLARES - #FF1562
- ANÉIS - #FF9FBE
+ BRINCOS -> ##FAB958
+ COLARES -> ##F9AD3A
+ ANÉIS -> ##FCCC85
  TORNOZELEIRAS - #00FF99
  CORRENTES - #00CA79
  PULSEIRAS - #35FF5E
@@ -18,4 +18,6 @@ Fundo laranja produtos: #EF6F43
 
 Fundo lista produtos: #000000
 
-Fundo botão LOGIN: #F8A221
+Fundo botão LOGIN: #F8A221 -> Nova cor: #FAB44D - Tamanho da fonte: 19px
+
+Fonte para textos -> 'Agency FB'
