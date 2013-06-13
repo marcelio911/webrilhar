@@ -1,0 +1,8 @@
+{
+    "name": "pagseguro/php", 
+    "description": "Biblioteca de integração com o PagSeguro", 
+
+    "autoload": {
+        "classmap": ["source/PagSeguroLibrary"]
+    }
+}

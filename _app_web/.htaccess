@@ -1,0 +1,13 @@
+<Files *.css>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.js>
+SetOutputFilter DEFLATE
+</Files>
+<Files *.jpg>
+SetOutputFilter DEFLATE
+</Files>
+AddType video/webm .webm
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType image/jpg .jpg
